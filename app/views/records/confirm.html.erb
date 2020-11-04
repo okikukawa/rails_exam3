@@ -1,0 +1,7 @@
+<h2>以下の内容でよろしいですか？</h2>
+<%= form_with(model: @record, url: records_path, local: true)do|form| %>
+  <%= form.hidden_field :content %>
+  <p><%= @record.content %></p>
+  <%= form.submit "投稿する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>
