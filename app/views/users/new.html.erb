@@ -1,0 +1,33 @@
+<h1>新規会員登録</h1>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count,"error") %>prohibited this<%= @user.name %>from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_with(model:@user, local:true)do|f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %>
+  <br>
+  <%= f.email_field :email %>
+  <br>
+  <%= f.label :password %>
+  <br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>
+  <br>
+  <%= f.password_field :password_confirmation %>
+  <br>
+  <br>
+  <%= f.submit "登録する" %>
+<% end %>
+<br>
+<%= link_to "記事一覧にもどる",records_path %>
