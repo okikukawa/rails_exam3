@@ -7,7 +7,9 @@ class RecordsController < ApplicationController
     @record = Record.new
   end
   def create
-    @record = Record.new(record_params)
+    # @record = Record.new(record_params)
+    # @record.user_id = current_user.id
+    @record = current_user.records.build(record_params)
     if params[:back]
       render :new
     else
@@ -19,6 +21,7 @@ class RecordsController < ApplicationController
     end
   end
   def show
+    @favorite = current_user.favorites.find_by(record_id: @record.id)
   end
   def edit
   end
@@ -34,7 +37,9 @@ class RecordsController < ApplicationController
     redirect_to records_path, notice: "記事を削除しました。"
   end
   def confirm
-    @record = Record.new(record_params)
+    # @record = Record.new(record_params)
+    # @record.user_id = current_user.id
+    @record = current_user.records.build(record_params)
     render :new if @record.invalid?
   end
   private
