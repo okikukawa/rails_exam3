@@ -44,7 +44,7 @@ class RecordsController < ApplicationController
   end
   private
   def record_params
-    params.require(:record).permit(:content,:image)
+    params.require(:record).permit(:content, :image, :image_cache)
   end
   def set_record
     @record = Record.find(params[:id])

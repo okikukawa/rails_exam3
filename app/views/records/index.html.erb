@@ -1,6 +1,6 @@
 <h1>投稿一覧</h1>
-<!-- <p><%= notice %></p> -->
 <% @record.each do |record| %>
+  <p><%= image_tag record.image.url %></p>
   <p><%= record.content %></p>
   <p>投稿者：<%= record.user.name %></p>
   <%= link_to '詳細',record_path(record.id) %>

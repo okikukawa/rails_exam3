@@ -1,4 +1,4 @@
-<h1>新規会員登録</h1>
+<h1>プロフィールを編集する</h1>
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count,"error") %>prohibited this<%= @user.name %>from being saved:</h2>
@@ -9,7 +9,7 @@
     </ul>
   </div>
 <% end %>
-<%= form_with(model:@user, local:true)do|f| %>
+<%= form_with(model: @user, local:true)do|f| %>
   <%= f.label :name %>
   <br>
   <%= f.text_field :name %>
@@ -27,7 +27,7 @@
   <%= f.password_field :password_confirmation %>
   <br>
   <br>
-  <%= f.submit "登録する" %>
+  <%= f.submit "変更する" %>
 <% end %>
 <br>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
+<%= link_to "投稿一覧にもどる",records_path %>

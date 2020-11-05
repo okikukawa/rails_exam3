@@ -1,7 +1,12 @@
 <h2>以下の内容でよろしいですか？</h2>
 <%= form_with(model: @record, url: records_path, local: true)do|form| %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
   <p><%= @record.content %></p>
-  <%= form.submit "投稿する" %>
+  <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
+  <p><%= form.submit "投稿する" %></p>
+<% end %>
+<%= form_with(model: @record, url: new_record_path, local: true)do|form| %>
+  <%= form.hidden_field :image_cache %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
