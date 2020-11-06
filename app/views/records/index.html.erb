@@ -4,7 +4,9 @@
   <p><%= record.content %></p>
   <p>投稿者：<%= record.user.name %></p>
   <%= link_to '詳細',record_path(record.id) %>
-  <%= link_to '編集',edit_record_path(record.id) %>
-  <%= link_to '削除',record_path(record.id),method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <% if logged_in? && current_user.id == record.user_id %>
+    <%= link_to '編集',edit_record_path(record.id) %>
+    <%= link_to '削除',record_path(record.id),method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  <% end %>
 <% end %>
 <p><%= link_to '投稿する',new_record_path %></p>

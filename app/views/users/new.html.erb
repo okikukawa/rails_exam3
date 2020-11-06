@@ -26,8 +26,13 @@
   <br>
   <%= f.password_field :password_confirmation %>
   <br>
+  <%= f.label :image  %>
+  <br>
+  <%= f.file_field :image  %>
+  <br>
   <br>
   <%= f.submit "登録する" %>
 <% end %>
 <br>
+<p><%= link_to 'ログインはこちら',new_session_path %></p>
 <p><%= link_to '投稿一覧に戻る',records_path %></p>

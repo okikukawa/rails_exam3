@@ -1,5 +1,6 @@
 <h1>会員情報</h1>
+<%= image_tag(@user.image.url) if @user.image && @user.image.url %>
 <p>Name：<%= @user.name %></p>
 <p>Email：<%= @user.email %></p>
-<%= link_to 'プロフィールを編集する', edit_user_path(@user.id) %>
+<p><%= link_to 'プロフィールを編集する', edit_user_path(@user.id) %></p>
 <p><%= link_to '投稿一覧に戻る',records_path %></p>

@@ -4,7 +4,11 @@ class RecordsController < ApplicationController
     @record = Record.all
   end
   def new
-    @record = Record.new
+    if logged_in?
+      @record = Record.new
+    else
+      needed_login
+    end
   end
   def create
     # @record = Record.new(record_params)
@@ -21,7 +25,11 @@ class RecordsController < ApplicationController
     end
   end
   def show
-    @favorite = current_user.favorites.find_by(record_id: @record.id)
+    if logged_in?
+      @favorite = current_user.favorites.find_by(record_id: @record.id)
+    else
+      needed_login
+    end
   end
   def edit
   end
@@ -48,5 +56,8 @@ class RecordsController < ApplicationController
   end
   def set_record
     @record = Record.find(params[:id])
+  end
+  def needed_login
+    redirect_to new_user_path, notice: "ログインが必要です"
   end
 end

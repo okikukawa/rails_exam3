@@ -26,8 +26,13 @@
   <br>
   <%= f.password_field :password_confirmation %>
   <br>
+  <%= f.label :image  %>
+  <br>
+  <%= f.file_field :image  %>
+  <br>
   <br>
   <%= f.submit "変更する" %>
 <% end %>
 <br>
-<%= link_to "投稿一覧にもどる",records_path %>
+<p><%= link_to "戻る",user_path(@user.id) %></p>
+<%= link_to "投稿一覧に戻る",records_path %>
