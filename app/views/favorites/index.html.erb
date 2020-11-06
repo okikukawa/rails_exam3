@@ -1,0 +1,9 @@
+<h1>お気に入り一覧</h1>
+<% @favorite.each do |fav| %>
+  <p><%= image_tag fav.image.url %></p>
+  <p><%= fav.content %></p>
+  <p>投稿者：<%= fav.user.name %></p>
+  <%= link_to '詳細',record_path(fav.id) %>
+<% end %>
+<p><%= link_to '投稿一覧に戻る',records_path %></p>
+<p><%= link_to '投稿する',new_record_path %></p>

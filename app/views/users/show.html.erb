@@ -3,4 +3,5 @@
 <p>Name：<%= @user.name %></p>
 <p>Email：<%= @user.email %></p>
 <p><%= link_to 'プロフィールを編集する', edit_user_path(@user.id) %></p>
+<p><%= link_to 'お気に入り一覧', favorites_path %></p>
 <p><%= link_to '投稿一覧に戻る',records_path %></p>
