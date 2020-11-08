@@ -5,12 +5,12 @@
       <p><%= image_tag fav.image.url, class:"image-vw" %></p>
       <p><%= fav.content %></p>
       <p>投稿者：<%= fav.user.name %></p>
-      <%= link_to 'More',record_path(fav.id),class:"label label-info" %>
+      <%= link_to 'More',record_path(fav.id),class:"label label-primary" %>
     </div>
   <% end %>
   <br>
   <p><%= link_to 'Back to top',records_path %></p>
   <br>
   <br>
-  <p><%= link_to 'New post',new_record_path,class:"btn btn-primary btn-lg" %></p>
+  <p><%= link_to 'New post',new_record_path,class:"btn btn-success btn-lg" %></p>
 </div>
