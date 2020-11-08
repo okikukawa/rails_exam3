@@ -1,7 +1,14 @@
-<h1>会員情報</h1>
-<%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-<p>Name：<%= @user.name %></p>
-<p>Email：<%= @user.email %></p>
-<p><%= link_to 'プロフィールを編集する', edit_user_path(@user.id) %></p>
-<p><%= link_to 'お気に入り一覧', favorites_path %></p>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
+<div class="container">
+  <h1>Profile</h1>
+  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+  <br>
+  <br>
+  <p>Name：<%= @user.name %></p>
+  <p>Email：<%= @user.email %></p>
+  <br>
+  <p><%= link_to 'Edit', edit_user_path(@user.id),class:"label label-warning" %></p>
+  <br>
+  <p><%= link_to 'Favorite List', favorites_path,class:"label label-primary" %></p>
+  <br>
+  <p><%= link_to 'Back to top',records_path %></p>
+</div>

@@ -5,19 +5,22 @@ class RecordsController < ApplicationController
   end
   def new
     if logged_in?
-      @record = Record.new
+      if params[:back]
+        @record = Record.new(record_params)
+      else
+        @record = Record.new
+      end
     else
       needed_login
     end
   end
   def create
-    # @record = Record.new(record_params)
-    # @record.user_id = current_user.id
     @record = current_user.records.build(record_params)
     if params[:back]
       render :new
     else
       if @record.save
+        RecordMailer.post_mail(@record).deliver
         redirect_to records_path, notice: "記事を投稿しました。"
       else
         render :new
@@ -45,8 +48,6 @@ class RecordsController < ApplicationController
     redirect_to records_path, notice: "記事を削除しました。"
   end
   def confirm
-    # @record = Record.new(record_params)
-    # @record.user_id = current_user.id
     @record = current_user.records.build(record_params)
     render :new if @record.invalid?
   end

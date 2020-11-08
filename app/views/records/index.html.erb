@@ -1,12 +1,16 @@
-<h1>投稿一覧</h1>
-<% @record.each do |record| %>
-  <p><%= image_tag record.image.url %></p>
-  <p><%= record.content %></p>
-  <p>投稿者：<%= record.user.name %></p>
-  <%= link_to '詳細',record_path(record.id) %>
-  <% if logged_in? && current_user.id == record.user_id %>
-    <%= link_to '編集',edit_record_path(record.id) %>
-    <%= link_to '削除',record_path(record.id),method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<div class="container">
+  <h1>Post</h1>
+  <% @record.each do |record| %>
+    <div class="posted_record">
+      <p><%= image_tag record.image.url %></p>
+      <p><%= record.content %></p>
+      <p>Poster：<%= record.user.name %></p>
+      <%= link_to 'More',record_path(record.id),class:"label label-primary" %>
+      <% if logged_in? && current_user.id == record.user_id %>
+        <%= link_to 'Edit',edit_record_path(record.id),class:"label label-warning" %>
+        <%= link_to 'Delete',record_path(record.id),method: :delete, data: { confirm: '本当に削除しますか？' },class:"label label-danger" %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
-<p><%= link_to '投稿する',new_record_path %></p>
+</div>
+<p><%= link_to 'New post',new_record_path,class:"btn btn-success btn-lg" %></p>

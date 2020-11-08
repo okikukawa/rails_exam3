@@ -1,12 +1,19 @@
-<h2>以下の内容でよろしいですか？</h2>
-<%= form_with(model: @record, url: records_path, local: true)do|form| %>
-  <%= form.hidden_field :content %>
-  <%= form.hidden_field :image_cache %>
-  <p><%= @record.content %></p>
-  <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
-  <p><%= form.submit "投稿する" %></p>
-<% end %>
-<%= form_with(model: @record, url: new_record_path, local: true)do|form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+<div class="container">
+  <h3>以下の内容でよろしいですか？</h3>
+  <%= form_with(model: @record, url: records_path, local: true)do|form| %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    <br>
+    <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
+    <br>
+    <p><%= @record.content %></p>
+    <br>
+    <p><%= form.submit "Post" %></p>
+  <% end %>
+  <%= form_with(model: @record, url: new_record_path, local: true, method:"get")do|form| %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+    <br>
+    <%= form.submit "Return to new post", name: 'back' %>
+  <% end %>
+</div>

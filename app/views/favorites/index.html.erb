@@ -1,9 +1,16 @@
-<h1>お気に入り一覧</h1>
-<% @favorite.each do |fav| %>
-  <p><%= image_tag fav.image.url %></p>
-  <p><%= fav.content %></p>
-  <p>投稿者：<%= fav.user.name %></p>
-  <%= link_to '詳細',record_path(fav.id) %>
-<% end %>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
-<p><%= link_to '投稿する',new_record_path %></p>
+<div class="container">
+  <h1>Favorite list</h1>
+  <% @favorite.each do |fav| %>
+    <div class="posted_record">
+      <p><%= image_tag fav.image.url %></p>
+      <p><%= fav.content %></p>
+      <p>投稿者：<%= fav.user.name %></p>
+      <%= link_to 'More',record_path(fav.id),class:"label label-info" %>
+    </div>
+  <% end %>
+  <br>
+  <p><%= link_to 'Back to top',records_path %></p>
+  <br>
+  <br>
+  <p><%= link_to 'New post',new_record_path,class:"btn btn-primary btn-lg" %></p>
+</div>

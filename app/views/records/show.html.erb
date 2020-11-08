@@ -1,13 +1,20 @@
-<h1>投稿詳細</h1>
-<p><%= @record.content %></p>
-<%= image_tag @record.image.url %>
-<% unless @record.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <p><%= link_to 'お気に入り解除',favorite_path(id: @favorite.id),method: :delete, class: 'btn btn-danger' %></p>
+<div class="container">
+  <h1>Details</h1>
+  <br>
+  <%= image_tag @record.image.url %>
+  <br>
+  <br>
+  <p><%= @record.content %></p>
+  <br>
+  <% unless @record.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <p><%= link_to 'Remove from favorite',favorite_path(id: @favorite.id),method: :delete, class: 'btn btn-danger' %></p>
+    <% else %>
+      <p><%= link_to 'Favorite',favorites_path(record_id: @record.id),method: :post, class: 'btn btn-primary' %></p>
+    <% end %>
   <% else %>
-    <p><%= link_to 'お気に入り',favorites_path(record_id: @record.id),method: :post, class: 'btn btn-primary' %></p>
+    <p><%= link_to 'Edit',edit_record_path(@record.id) %></p>
   <% end %>
-<% else %>
-  <p><%= link_to '編集する',edit_record_path(@record.id) %></p>
-<% end %>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
+  <br>
+  <p><%= link_to 'Back to top',records_path %></p>
+</div>

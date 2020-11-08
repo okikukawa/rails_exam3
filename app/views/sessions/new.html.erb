@@ -1,10 +1,17 @@
-<h1>ログイン</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true)do|f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "ログイン" %>
-<% end %>
-<p><%= link_to '新規登録はこちら',new_record_path %></p>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
+<div class="container">
+  <h1>Login</h1>
+  <%= form_with(scope: :session, url: sessions_path, local: true)do|f| %>
+    <br>
+    <p><%= f.label :email %></p>
+    <p><%= f.email_field :email %></p>
+    <br>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password %></p>
+    <br>
+    <p><%= f.submit "Login" %></p>
+  <% end %>
+  <br>
+  <br>
+  <p><%= link_to 'Sign up',new_record_path %></p>
+  <p><%= link_to 'Back to top',records_path %></p>
+</div>

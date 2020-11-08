@@ -10,12 +10,17 @@
     </div>
   <% end %>
   <div class="blog_content">
-    <p><%= form.label :content %></p>
-    <p><%= form.text_field :content %></p>
-    <%= image_tag(@record.image.url) if @record.image && @record.image.url %>
-    <p><%= form.file_field :image %></p>
+    <br>
+    <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
+    <label><%= form.file_field :image %></label>
     <p><%= form.hidden_field :image_cache %></p>
+    <br>
+    <p><%= form.label :content %></p>
+    <p><%= form.text_area :content %></p>
+    <br>
   </div>
   <%= form.submit %>
 <% end %>
-<p><%= link_to '投稿一覧に戻る',records_path %></p>
+<br>
+<br>
+<p><%= link_to 'Back to top',records_path %></p>
