@@ -2,7 +2,7 @@
   <h1>Favorite list</h1>
   <% @favorite.each do |fav| %>
     <div class="posted_record">
-      <p><%= image_tag fav.image.url %></p>
+      <p><%= image_tag fav.image.url, class:"image-vw" %></p>
       <p><%= fav.content %></p>
       <p>投稿者：<%= fav.user.name %></p>
       <%= link_to 'More',record_path(fav.id),class:"label label-info" %>

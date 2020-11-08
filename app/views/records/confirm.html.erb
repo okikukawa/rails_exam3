@@ -4,7 +4,7 @@
     <%= form.hidden_field :content %>
     <%= form.hidden_field :image_cache %>
     <br>
-    <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
+    <p><%= image_tag @record.image.url, class:"image-vw" if @record.image && @record.image.url %></p>
     <br>
     <p><%= @record.content %></p>
     <br>

@@ -14,17 +14,16 @@
         <%= link_to image_tag("insta.png", class: "logo_image"),records_path %>
         <%= link_to "Instaclone", records_path %>
       </div>
-    <ul>
+      <ul>
       <% if logged_in? %>
-        <li><%= link_to "New post",new_record_path %></li>
         <li class="header_btn"><%= link_to "Profile",user_path(current_user.id)%></li>
         <li><%= link_to "Logout",session_path(current_user.id),method: :delete,data:{ confirm: "ログアウトしますか？" } %></li>
       <% else %>
         <li><%= link_to "Sign up",new_user_path %></li>
         <li><%= link_to "Login",new_session_path %></li>
       <% end %>
-    </ul>
-  </header>
+      </ul>
+    </header>
     <% flash.each do |key,value| %>
       <%= content_tag(:div,value,class:"#{key}") %>
     <% end %>

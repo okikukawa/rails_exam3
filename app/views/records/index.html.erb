@@ -5,7 +5,7 @@
   <h1>Post</h1>
   <% @record.each do |record| %>
     <div class="posted_record">
-      <p><%= image_tag record.image.url %></p>
+      <p><%= image_tag record.image.url, class:"image-vw" %></p>
       <p><%= record.content %></p>
       <p>Poster：<%= record.user.name %></p>
       <%= link_to 'More',record_path(record.id),class:"label label-primary" %>

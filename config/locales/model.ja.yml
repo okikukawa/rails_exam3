@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      # record: 投稿
+      record: 投稿
       user: ユーザー
     attributes:
       record:
@@ -10,9 +10,9 @@ ja:
         image: 画像
       user:
         title: タイトル
-        # name: 名前
-        # email: メールアドレス
-        # current_password: 現在のパスワード
-        # password: パスワード
-        # password_confirmation: 確認用パスワード
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
         remember_me: ログインを記憶

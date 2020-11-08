@@ -3,15 +3,17 @@
     <p  class="alert alert-success" ><%= notice %></p>
   <% end %>
   <h1>Profile</h1>
-  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+  <p><%= image_tag @user.image.url, class:"image-vw" if @user.image && @user.image.url %></p>
   <br>
   <br>
   <p>Name：<%= @user.name %></p>
   <p>Email：<%= @user.email %></p>
   <br>
+  <% if @user.id == current_user.id %>
   <p><%= link_to 'Edit', edit_user_path(@user.id),class:"label label-warning" %></p>
-  <br>
   <p><%= link_to 'Favorite List', favorites_path,class:"label label-primary" %></p>
+  <% end %>
+  <br>
   <br>
   <p><%= link_to 'Back to top',records_path %></p>
 </div>

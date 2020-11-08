@@ -9,10 +9,11 @@
       </ul>
     </div>
   <% end %>
-  <div class="blog_content">
+  <div class="record_content">
     <br>
-    <p><%= image_tag(@record.image.url) if @record.image && @record.image.url %></p>
-    <label><%= form.file_field :image %></label>
+    <p><%= image_tag @record.image.url, class:"image-vw" if @record.image && @record.image.url %></p>
+    <br>
+    <label><%= form.file_field :image,class:"file_field" %></label>
     <p><%= form.hidden_field :image_cache %></p>
     <br>
     <p><%= form.label :content %></p>

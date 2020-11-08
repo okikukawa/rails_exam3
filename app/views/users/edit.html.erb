@@ -12,7 +12,7 @@
   <% end %>
   <br>
   <br>
-  <p><%= image_tag @user.image.url %></p>
+  <p><%= image_tag @user.image.url, class:"image-vw" if @user.image && @user.image.url %></p>
   <%= form_with(model: @user, local:true)do|f| %>
     <br>
     <label><%= f.file_field :image %></label>
