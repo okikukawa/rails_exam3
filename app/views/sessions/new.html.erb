@@ -1,4 +1,7 @@
 <div class="container">
+  <% if notice.present? %>
+    <p class="alert alert-danger"><%= notice %></p>
+  <% end %>
   <h1>Login</h1>
   <%= form_with(scope: :session, url: sessions_path, local: true)do|f| %>
     <br>

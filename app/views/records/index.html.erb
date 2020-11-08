@@ -1,4 +1,7 @@
 <div class="container">
+  <% if notice.present? %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
   <h1>Post</h1>
   <% @record.each do |record| %>
     <div class="posted_record">

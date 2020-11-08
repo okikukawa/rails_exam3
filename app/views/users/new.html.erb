@@ -1,4 +1,7 @@
 <div class="container">
+  <% if notice.present? %>
+    <p class="alert alert-warning"><%= notice %></p>
+  <% end %>
   <h1>Sign up</h1>
   <% if @user.errors.any? %>
     <div id="error_explanation">

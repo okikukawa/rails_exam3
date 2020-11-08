@@ -1,4 +1,7 @@
 <div class="container">
+  <% if notice.present? %>
+    <p  class="alert alert-success" ><%= notice %></p>
+  <% end %>
   <h1>Profile</h1>
   <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
   <br>
