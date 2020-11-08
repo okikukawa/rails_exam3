@@ -6,7 +6,10 @@ html {
 }
 body {
   text-align: center;
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+  background: linear-gradient(180deg, rgba(22, 135, 237,0.2), rgba(90, 55, 90,0.2));
+  // background-size:cover;
+  // background-color: rgba(180,200,200,0.2);
 }
 header {
 
