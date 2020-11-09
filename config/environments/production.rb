@@ -17,7 +17,7 @@ Rails.application.configure do
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
-  config.action_mailer.default_url_options = { host: 'rails-exam3.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'agile-sands-13191.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
