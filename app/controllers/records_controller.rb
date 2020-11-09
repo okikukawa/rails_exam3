@@ -17,7 +17,7 @@ class RecordsController < ApplicationController
       render :new
     else
       if @record.save
-        RecordMailer.post_mail(@record).deliver
+        # RecordMailer.post_mail(@record).deliver
         redirect_to records_path, notice: "記事を投稿しました。"
       else
         render :new
