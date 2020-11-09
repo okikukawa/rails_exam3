@@ -5,10 +5,14 @@ class RecordsController < ApplicationController
     @record = Record.all
   end
   def new
-    if params[:back]
-      @record = Record.new(record_params)
+    if logged_in?
+      if params[:back]
+        @record = Record.new(record_params)
+      else
+        @record = Record.new
+      end
     else
-      @record = Record.new
+      redirect_to new_user_path, notice:"ログインが必要です"
     end
   end
   def create
