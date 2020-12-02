@@ -1,5 +1,4 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
   <h1>Details</h1>
   <br>
   <%= image_tag @record.image.url, class:"image-vw" %>
@@ -19,6 +18,9 @@
     <p><%= link_to 'Edit',edit_record_path(@record.id) %></p>
   <% end %>
   <br>
+  <% flash.each do |key,value| %>
+    <%= content_tag(:div,value,class:"#{key}") %>
+  <% end %>
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, record: @record } %>
   </div>
