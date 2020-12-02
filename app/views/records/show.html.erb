@@ -18,5 +18,12 @@
     <p><%= link_to 'Edit',edit_record_path(@record.id) %></p>
   <% end %>
   <br>
+  <% flash.each do |key,value| %>
+    <%= content_tag(:div,value,class:"#{key}") %>
+  <% end %>
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, record: @record } %>
+  </div>
+  <%= render partial: 'comments/form', locals: { comment: @comment, record: @record } %>
   <p><%= link_to 'Back to top',records_path %></p>
 </div>
