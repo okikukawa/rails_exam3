@@ -31,6 +31,8 @@ class RecordsController < ApplicationController
   def show
     if logged_in?
       @favorite = current_user.favorites.find_by(record_id: @record.id)
+      @comments = @record.comments
+      @comment = @record.comments.build
     else
       redirect_to new_user_path, notice:"ログインが必要です"
     end

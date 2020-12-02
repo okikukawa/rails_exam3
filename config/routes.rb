@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :records do
+    resources :comments
     collection do
       post :confirm
     end
