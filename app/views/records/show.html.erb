@@ -22,6 +22,6 @@
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, record: @record } %>
   </div>
-  <%= render partial: 'comments/form', locals: { comments: @comment, record: @record } %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, record: @record } %>
   <p><%= link_to 'Back to top',records_path %></p>
 </div>

@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       else
         format.html { redirect_to record_path(@record),notice: '投稿に失敗しました。' }
       end
+    end
   end
   ptivate
   def comment_params
