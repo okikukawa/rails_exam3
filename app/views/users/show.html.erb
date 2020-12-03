@@ -10,10 +10,21 @@
   <p>Email：<%= @user.email %></p>
   <br>
   <% if @user.id == current_user.id %>
-  <p><%= link_to 'Edit', edit_user_path(@user.id) %></p>
-  <p><%= link_to 'Favorite List', favorites_path %></p>
+    <p><%= link_to 'Edit', edit_user_path(@user.id) %></p>
+    <p><%= link_to 'Favorite List', favorites_path %></p>
   <% end %>
   <br>
+  <p>フォロー</p>
+  <% @user_follow = User.find(params[:id]).following %>
+  <% @user_follow.each do |user| %>
+    <%= user.name %><br>
+  <% end %>
+  <br>
+  <p>フォロワー</p>
+  <% @user_follower = User.find(params[:id]).followers %>
+  <% @user_follower.each do |user| %>
+    <%= user.name %><br>
+  <% end %>
   <br>
   <p><%= link_to 'Back to top',records_path %></p>
 </div>
