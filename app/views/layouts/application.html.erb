@@ -16,6 +16,7 @@
       </div>
       <ul>
       <% if logged_in? %>
+        <li><%= link_to 'ユーザー一覧', users_path %></li>
         <li class="header_btn"><%= link_to "Profile",user_path(current_user.id)%></li>
         <li><%= link_to "Logout",session_path(current_user.id),method: :delete,data:{ confirm: "ログアウトしますか？" } %></li>
       <% else %>

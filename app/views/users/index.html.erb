@@ -1,0 +1,8 @@
+<h2>ユーザー</h2>
+  <% @user.each do |user| %>
+    <%= user.name %>
+    <br>
+    <%= user.email %>
+    <%= render 'follow_form', user: user %>
+    <br>
+  <% end %>
