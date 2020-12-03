@@ -1,6 +1,6 @@
 <h2>ユーザー</h2>
   <% @user.each do |user| %>
-    <%= user.name %>
+    <%= link_to "#{user.name}", user_path(user.id) %>
     <br>
     <%= user.email %>
     <%= render 'follow_form', user: user %>

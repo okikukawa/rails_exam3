@@ -10,8 +10,8 @@
   <p>Email：<%= @user.email %></p>
   <br>
   <% if @user.id == current_user.id %>
-  <p><%= link_to 'Edit', edit_user_path(@user.id) %></p>
-  <p><%= link_to 'Favorite List', favorites_path %></p>
+    <p><%= link_to 'Edit', edit_user_path(@user.id) %></p>
+    <p><%= link_to 'Favorite List', favorites_path %></p>
   <% end %>
   <br>
   <br>
