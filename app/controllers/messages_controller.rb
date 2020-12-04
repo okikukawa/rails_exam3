@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_aciton do
+  before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
   def index
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
       @messages.where.not(user_id: current_user.id).update_all(read: true)
     end
     @messages = @messages.order(:created_at)
-    @message = @conversation.message.build
+    @message = @conversation.messages.build
   end
   def create
     @message = @conversation.messages.build(message_params)
