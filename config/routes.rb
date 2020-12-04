@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :sessions, only:[:new, :create, :destroy]
   resources :favorites, only:[:create, :destroy, :index]
   resources :relationships, only:[:create, :destroy]
+  resources :conversations do
+    resources :messages
+  end
   mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
   root to: 'records#index'
 end
