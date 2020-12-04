@@ -3,13 +3,13 @@
     <%= link_to "#{user.name}", user_path(user.id) %>
     <br>
     <%= user.email %>
-    <%= render 'follow_form', user: user %>
     <% unless user.id == current_user.id %>
       <li>
         <div class="item">
           <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
         </div>
       </li>
-    <br>
     <% end %>
+    <%= render 'follow_form', user: user %>
+    <br>
   <% end %>

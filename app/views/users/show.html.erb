@@ -14,16 +14,34 @@
     <p><%= link_to 'Favorite List', favorites_path %></p>
   <% end %>
   <br>
-  <p>フォロー</p>
+  <h3>フォロー</h3>
   <% @user_follow = User.find(params[:id]).following %>
   <% @user_follow.each do |user| %>
     <%= user.name %><br>
+    <% unless user.id == current_user.id %>
+      <li>
+        <div class="item">
+          <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+        </div>
+      </li>
+    <% end %>
+    <%= render 'follow_form', user: user %>
+    <br>
   <% end %>
   <br>
-  <p>フォロワー</p>
+  <h3>フォロワー</h3>
   <% @user_follower = User.find(params[:id]).followers %>
   <% @user_follower.each do |user| %>
     <%= user.name %><br>
+    <% unless user.id == current_user.id %>
+      <li>
+        <div class="item">
+          <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+        </div>
+      </li>
+    <% end %>
+    <%= render 'follow_form', user: user %>
+    <br>
   <% end %>
   <br>
   <p><%= link_to 'Back to top',records_path %></p>
