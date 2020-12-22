@@ -1,6 +1,5 @@
 # config valid only for current version of Capistrano
 lock '3.6.0'
-
 # デプロイするアプリケーション名
 set :application, 'facebook_clone'
 # cloneするgitのレポジトリ
